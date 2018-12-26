@@ -1,0 +1,22 @@
+[Unit]
+Description=Herald Journal-to-XMPP bridge
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=herald
+ExecStart=/usr/bin/herald
+Restart=always
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+ProtectSystem=strict
+MemoryDenyWriteExecute=yes
+RestrictRealtime=yes
+
+[Install]
+WantedBy=multi-user.target
